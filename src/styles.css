@@ -1,0 +1,51 @@
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #FAF8F1;
+  color: #1B2A4A;
+  -webkit-font-smoothing: antialiased;
+}
+.qp-display { font-family: 'Fraunces', serif; }
+.qp-mono { font-family: 'IBM Plex Mono', monospace; }
+.qp-root { min-height: 100%; padding: 32px 20px; }
+.qp-brand { max-width: 640px; margin: 0 auto 24px; text-align: center; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #6B7280; }
+.qp-card { background: #FFFDF8; border: 1px solid #DCD6C7; border-radius: 4px; max-width: 640px; margin: 0 auto; position: relative; }
+.qp-card-inner { padding: 32px; }
+.qp-perf { border-top: 1px dashed #C9BFA5; margin: 0; }
+.qp-stamp { position: absolute; top: -14px; right: 24px; background: #B8892B; color: #FFFDF8; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 6px 12px; transform: rotate(4deg); border-radius: 2px; box-shadow: 0 2px 4px rgba(27,42,74,0.15); }
+.qp-h1 { font-size: 30px; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em; }
+.qp-sub { color: #6B7280; font-size: 14px; margin: 0 0 24px; }
+.qp-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; font-weight: 600; margin-bottom: 6px; display: block; }
+.qp-input, .qp-textarea, .qp-select { width: 100%; font-family: 'Inter', sans-serif; font-size: 15px; padding: 11px 13px; border: 1px solid #DCD6C7; border-radius: 3px; background: #fff; color: #1B2A4A; }
+.qp-input:focus, .qp-textarea:focus, .qp-select:focus { outline: 2px solid #1B2A4A; outline-offset: 1px; border-color: #1B2A4A; }
+.qp-textarea { resize: vertical; min-height: 140px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.6; }
+.qp-btn { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; padding: 11px 20px; border-radius: 3px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.15s; }
+.qp-btn:hover { opacity: 0.88; }
+.qp-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.qp-btn-primary { background: #1B2A4A; color: #FAF8F1; }
+.qp-btn-ghost { background: transparent; color: #1B2A4A; border: 1px solid #DCD6C7; }
+.qp-btn-danger { background: none; border: none; color: #A63D2F; cursor: pointer; }
+.qp-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.qp-option { display: flex; align-items: center; gap: 12px; padding: 13px 14px; border: 1px solid #DCD6C7; border-radius: 3px; margin-bottom: 10px; cursor: pointer; background: #fff; transition: border-color 0.15s, background 0.15s; }
+.qp-option:hover { border-color: #B8892B; }
+.qp-option.selected { border-color: #1B2A4A; background: #F0EDE3; }
+.qp-badge { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid #C9BFA5; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; flex-shrink: 0; }
+.qp-option.selected .qp-badge { background: #1B2A4A; border-color: #1B2A4A; color: #fff; }
+.qp-timer { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 15px; padding: 8px 16px; border-radius: 50px; border: 1.5px solid #1B2A4A; display: inline-flex; align-items: center; gap: 8px; }
+.qp-timer.low { border-color: #A63D2F; color: #A63D2F; }
+.qp-link { color: #1B2A4A; text-decoration: underline; cursor: pointer; font-size: 13px; background: none; border: none; padding: 0; display: inline-flex; align-items: center; gap: 4px; }
+.qp-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.qp-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #6B7280; padding: 8px 10px; border-bottom: 1px solid #DCD6C7; }
+.qp-table td { padding: 10px; border-bottom: 1px solid #EFEBDF; }
+.qp-code { font-family: 'IBM Plex Mono', monospace; font-weight: 600; letter-spacing: 0.1em; background: #F0EDE3; padding: 3px 8px; border-radius: 3px; }
+.qp-modal-backdrop { position: fixed; inset: 0; background: rgba(27,42,74,0.55); display: flex; align-items: center; justify-content: center; z-index: 50; padding: 20px; }
+.qp-modal { background: #FFFDF8; border-radius: 4px; max-width: 420px; width: 100%; padding: 28px; border-top: 4px solid #A63D2F; }
+.qp-error { color: #A63D2F; font-size: 13px; margin: 0 0 12px; }
+
+/* Lockdown mode: applied to the quiz-taking screen only */
+.qp-lockdown, .qp-lockdown * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}

@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Quizzes: any signed-in teacher can create their own; anyone (including
+    // unauthenticated students) can read a single quiz by its code to join it;
+    // only the owner can update/delete it.
+    match /quizzes/{quizId} {
+      allow read: if true;
+      allow create: if request.auth != null
+                    && request.resource.data.ownerId == request.auth.uid;
+      allow update, delete: if request.auth != null
+                    && resource.data.ownerId == request.auth.uid;
+    }
+
+    // Results: anyone can submit a result (students aren't authenticated).
+    // Only the owning teacher of the referenced quiz can read results back.
+    match /results/{resultId} {
+      allow create: if request.resource.data.keys().hasAll(
+                      ['quizId','studentName','score','total','timeTakenSec','violations']
+                    );
+      allow read: if request.auth != null
+                    && get(/databases/$(database)/documents/quizzes/$(resource.data.quizId)).data.ownerId == request.auth.uid;
+      allow update, delete: if false;
+    }
+  }
+}
